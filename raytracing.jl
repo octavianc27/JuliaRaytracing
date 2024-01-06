@@ -1,7 +1,7 @@
 include("vec3.jl")
 include("camera.jl")
 include("ray.jl")
-include("materials/material.jl")
+include("materials/material.jl")   
 include("hit_record.jl")
 include("materials/lambertian.jl")
 include("materials/metal.jl")
