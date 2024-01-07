@@ -1,4 +1,4 @@
-function ray_color(r::ray, world::HittableList, depth::Int)
+ function ray_color(r::ray, world::HittableList, depth::Int)
     if depth<0
         return color(0, 0, 0)
     end
@@ -18,7 +18,7 @@ function ray_color(r::ray, world::HittableList, depth::Int)
     return (1.0-a) * color(1.0, 1.0, 1.0) + a * color(0.5, 0.7, 1.0)
 end
 
-function write_color(file::IO, pixel_color::color, samples_per_pixel::Int)
+ function write_color(file::IO, pixel_color::color, samples_per_pixel::Int)
     r = pixel_color.x
     g = pixel_color.y
     b = pixel_color.z

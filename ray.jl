@@ -1,4 +1,4 @@
-struct ray
+ struct ray
     origin::point3
     direction::vec3
 
@@ -7,15 +7,7 @@ struct ray
     end
 end
 
-function origin(ray::ray)
-    return ray.origin
-end
-
-function direction(ray::ray)
-    return ray.direction
-end
-
-function at(ray::ray, t::Float64)
-    return origin(ray) + t * direction(ray)
+ function at(r::ray, t::Float64)
+    return origin(r) + t * direction(r)
 end
 

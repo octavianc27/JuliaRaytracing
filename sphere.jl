@@ -1,10 +1,10 @@
-struct Sphere <: Hittable
+ struct Sphere <: Hittable
     center::point3
     radius::Float64
     mat::Material
 end
 
-function hit(s::Sphere, r::ray, ray_int::Interval)
+ function hit(s::Sphere, r::ray, ray_int::Interval)
     oc = r.origin - s.center
     a = dot(r.direction, r.direction)
     half_b = dot(oc, r.direction)

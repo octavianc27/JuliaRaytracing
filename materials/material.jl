@@ -1,8 +1,8 @@
-abstract type Material end
+ abstract type Material end
 
-struct EmptyMaterial <: Material
+ struct EmptyMaterial <: Material
 end
 
-function scatter(mat::Material, r_in::ray, rec::HitRecord)
+ function scatter(mat::Material, r_in::ray, rec::HitRecord)
     
 end

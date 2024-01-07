@@ -1,24 +1,24 @@
-mutable struct HittableList <: Hittable
+ mutable struct HittableList <: Hittable
     objects::Vector{Hittable}
 end
 
-function HittableList()
+ function HittableList()
     return HittableList(Hittable[])
 end
 
-function HittableList(object::Hittable)
+ function HittableList(object::Hittable)
     return HittableList([object])
 end
 
-function clear!(hl::HittableList)
+ function clear!(hl::HittableList)
     empty!(hl.objects)
 end
 
-function add!(hl::HittableList, object::Hittable)
+ function add!(hl::HittableList, object::Hittable)
     push!(hl.objects, object)
 end
 
-function hit(hl::HittableList, r::ray, ray_int::Interval)
+ function hit(hl::HittableList, r::ray, ray_int::Interval)
     rec = HitRecord()
     hit_anything = false
     closest_so_far = ray_int.max
