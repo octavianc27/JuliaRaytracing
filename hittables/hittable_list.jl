@@ -1,13 +1,18 @@
  mutable struct HittableList <: Hittable
     objects::Vector{Hittable}
+    bbox::AABB
 end
 
- function HittableList()
-    return HittableList(Hittable[])
+function HittableList(objects::Vector{Hittable})
+    return HittableList(objects, AABB())
+end
+
+function HittableList()
+    return HittableList(Hittable[], AABB())
 end
 
  function HittableList(object::Hittable)
-    return HittableList([object])
+    return HittableList([object], AABB())
 end
 
  function clear!(hl::HittableList)
@@ -15,6 +20,7 @@ end
 end
 
  function add!(hl::HittableList, object::Hittable)
+    hl.bbox = AABB(hl.bbox, object.bbox)
     push!(hl.objects, object)
 end
 
@@ -32,5 +38,5 @@ end
         end
     end
 
-    return (hit_anything, rec)
+    return hit_anything, rec
 end

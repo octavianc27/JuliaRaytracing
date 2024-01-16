@@ -26,7 +26,7 @@ end
         direction = refract(unit_direction, rec.normal, refraction_ratio)
     end
 
-    scattered = ray(rec.p, direction)
+    scattered = ray(rec.p, direction, time = r_in.time)
     test = true
     return test, attenuation, scattered
 end

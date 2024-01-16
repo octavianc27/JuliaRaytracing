@@ -70,7 +70,9 @@ end
     ray_origin = (cam.defocus_angle <= 0) ? cam.center : defocus_disk_sample(cam)
     ray_direction = pixel_sample - ray_origin
 
-    return ray(ray_origin, ray_direction)
+    time = rand()
+
+    return ray(ray_origin, ray_direction, time = time)
 end
 
  function render(cam::Camera, world::HittableList)
